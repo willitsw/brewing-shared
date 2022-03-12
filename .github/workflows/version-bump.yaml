@@ -5,12 +5,9 @@ on:
     - master
 jobs:
   compile:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Increment version
         uses: "phips28/gh-action-bump-version@v8.2.2"
-
-      - name: Exit Exit
-        run: exit 1
