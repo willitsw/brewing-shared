@@ -1,6 +1,6 @@
 {
   "name": "brewing-shared",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Shared resources for beer app",
   "main": "src/index.js",
   "scripts": {
