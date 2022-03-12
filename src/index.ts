@@ -1,1 +1,1 @@
-export * as Recipe from "./types/brewing-types";
+export * as BrewingTypes from "./types/brewing-types";
