@@ -1,22 +1,16 @@
-name: Bump version number
-
+name: Increment the version number
 on:
   push:
     branches:
     - master
-  
 jobs:
   compile:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
 
-      - name: "Clean install"
-        run: npm ci
-
-      - name: "Bump app version in package.json"
+      - name: Increment version
         uses: "phips28/gh-action-bump-version@v8.2.2"
 
-      - name: Exit Job
-        if: ${{ failure() || cancelled() }}
+      - name: Exit Exit
         run: exit 1
