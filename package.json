@@ -1,0 +1,19 @@
+{
+  "name": "brewing-shared",
+  "version": "0.0.0",
+  "description": "Shared resources for beer app",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willitsw/brewing-shared.git"
+  },
+  "author": "Bill Willits",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willitsw/brewing-shared/issues"
+  },
+  "homepage": "https://github.com/willitsw/brewing-shared#readme"
+}
