@@ -50,7 +50,7 @@ export interface Recipe {
   measurementType: MeasurementType;
   batchSize: number;
   efficiency: number;
-  ingredients: Fermentable | Hop | Culture | NonFermentable;
+  ingredients: Array<Fermentable | Hop | Culture | NonFermentable>;
 }
 
 export type FermentableType =
