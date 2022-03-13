@@ -8,28 +8,27 @@ import {
   Step,
 } from "../types/brewing-types";
 
-export const getIngredientByType = (
+export const getFermentables = (recipe: Recipe): Fermentable[] => {
+  return getIngredientByType(recipe, "Fermentable") as Fermentable[];
+};
+
+export const getHops = (recipe: Recipe): Hop[] => {
+  return getIngredientByType(recipe, "Hop") as Hop[];
+};
+
+export const getCultures = (recipe: Recipe): Culture[] => {
+  return getIngredientByType(recipe, "Culture") as Culture[];
+};
+
+export const getNonFermentables = (recipe: Recipe): NonFermentable[] => {
+  return getIngredientByType(recipe, "Misc") as NonFermentable[];
+};
+
+const getIngredientByType = (
   recipe: Recipe,
   ingredientType: IngredientType
 ) => {
-  switch (ingredientType) {
-    case "Fermentable":
-      return recipe.ingredients.filter(
-        ({ type }) => type === "Fermentable"
-      ) as Fermentable[];
-    case "Hop":
-      return recipe.ingredients.filter(({ type }) => type === "Hop") as Hop[];
-    case "Culture":
-      return recipe.ingredients.filter(
-        ({ type }) => type === "Culture"
-      ) as Culture[];
-    case "Misc":
-      return recipe.ingredients.filter(
-        ({ type }) => type === "Misc"
-      ) as NonFermentable[];
-    default:
-      throw new Error("Invalid type specified");
-  }
+  return recipe.ingredients.filter(({ type }) => type === ingredientType);
 };
 
 export const getIngredientByStep = (
