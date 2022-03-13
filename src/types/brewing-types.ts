@@ -26,7 +26,11 @@ export enum Step {
   Fermentor = "Fermentor",
   Bottle = "Bottle",
 }
-export interface IngredientType {
+
+export type IngredientType = "Fermentable" | "Hop" | "Culture" | "Misc";
+
+export interface Ingredient {
+  type: IngredientType;
   id: string;
   name: string;
   step: Step;
@@ -46,10 +50,7 @@ export interface Recipe {
   measurementType: MeasurementType;
   batchSize: number;
   efficiency: number;
-  fermentables: Fermentable[];
-  hops: Hop[];
-  cultures: Culture[];
-  nonFermentables: NonFermentable[];
+  ingredients: Fermentable | Hop | Culture | NonFermentable;
 }
 
 export type FermentableType =
@@ -62,13 +63,15 @@ export type FermentableType =
   | "Juice"
   | "Honey";
 
-export interface Fermentable extends IngredientType {
+export interface Fermentable extends Ingredient {
+  type: "Fermentable";
   lovibond: number;
-  type: FermentableType;
+  fermentableType: FermentableType;
   gravity: number;
   amount: number;
 }
-export interface Hop extends IngredientType {
+export interface Hop extends Ingredient {
+  type: "Hop";
   name: string;
   alphaAcid: number;
   amount: number;
@@ -76,12 +79,14 @@ export interface Hop extends IngredientType {
 
 export type CultureForm = "Liquid" | "Dry";
 
-export interface Culture extends IngredientType {
+export interface Culture extends Ingredient {
+  type: "Culture";
   attenuation: number;
   form: CultureForm;
 }
 
-export interface NonFermentable extends IngredientType {
+export interface NonFermentable extends Ingredient {
+  type: "Misc";
   amount: string;
 }
 
