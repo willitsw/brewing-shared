@@ -3,10 +3,8 @@ import {
   Fermentable,
   Hop,
   Ingredient,
-  IngredientType,
   NonFermentable,
   Recipe,
-  Step,
 } from "../types/brewing-types";
 
 // export const getFermentables = (recipe: Recipe): Fermentable[] => {
