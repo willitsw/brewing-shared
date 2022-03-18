@@ -19,13 +19,7 @@ export interface BrewSettings {
 
 export type RecipeType = "Other" | "Extract" | "Partial mash" | "All grain";
 
-export enum Step {
-  StrikeWater = "Strike Water",
-  Mash = "Mash",
-  Boil = "Boil",
-  Fermentor = "Fermentor",
-  Bottle = "Bottle",
-}
+export type Step = "StrikeWater" | "Mash" | "Boil" | "Fermentor" | "Bottle";
 
 export type IngredientType = "Fermentable" | "Hop" | "Culture" | "Misc";
 
