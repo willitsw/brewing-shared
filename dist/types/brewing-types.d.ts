@@ -43,6 +43,7 @@ export interface Recipe {
 export declare type FermentableType = "Other" | "Liquid extract" | "Dry extract" | "Grain" | "Sugar" | "Fruit" | "Juice" | "Honey";
 export interface Chemistry extends Ingredient {
     type: "Chemistry";
+    amount: string;
 }
 export interface Fermentable extends Ingredient {
     type: "Fermentable";

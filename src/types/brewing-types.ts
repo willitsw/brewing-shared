@@ -64,6 +64,7 @@ export type FermentableType =
 
 export interface Chemistry extends Ingredient {
   type: "Chemistry";
+  amount: string;
 }
 export interface Fermentable extends Ingredient {
   type: "Fermentable";
