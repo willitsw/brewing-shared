@@ -49,7 +49,7 @@ export interface Recipe {
   measurementType: MeasurementType;
   batchSize: number;
   efficiency: number;
-  ingredients: Array<Fermentable | Hop | Culture | NonFermentable>;
+  ingredients: Array<Fermentable | Hop | Culture | NonFermentable | Chemistry>;
 }
 
 export type FermentableType =
@@ -62,6 +62,7 @@ export type FermentableType =
   | "Juice"
   | "Honey";
 
+export interface Chemistry extends Ingredient {}
 export interface Fermentable extends Ingredient {
   type: "Fermentable";
   lovibond: number;
