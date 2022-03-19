@@ -30,6 +30,6 @@ const sortIngredientsByType = (ingredients) => {
     return ingredients.reduce((returnValue, currentValue) => {
         returnValue[currentValue.type].push(currentValue);
         return returnValue;
-    }, { Fermentable: [], Hop: [], Culture: [], Misc: [] });
+    }, { Fermentable: [], Hop: [], Culture: [], Misc: [], Chemistry: [] });
 };
 exports.sortIngredientsByType = sortIngredientsByType;

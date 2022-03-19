@@ -1,4 +1,5 @@
 import {
+  Chemistry,
   Culture,
   Fermentable,
   Hop,
@@ -55,12 +56,13 @@ export const sortIngredientsByType = (
   Hop: Hop[];
   Culture: Culture[];
   Misc: NonFermentable[];
+  Chemistry: Chemistry[];
 } => {
   return ingredients.reduce(
     (returnValue, currentValue) => {
       returnValue[currentValue.type].push(currentValue);
       return returnValue;
     },
-    { Fermentable: [], Hop: [], Culture: [], Misc: [] }
+    { Fermentable: [], Hop: [], Culture: [], Misc: [], Chemistry: [] }
   );
 };

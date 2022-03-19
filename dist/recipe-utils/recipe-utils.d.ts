@@ -1,4 +1,4 @@
-import { Culture, Fermentable, Hop, Ingredient, NonFermentable } from "../types/brewing-types";
+import { Chemistry, Culture, Fermentable, Hop, Ingredient, NonFermentable } from "../types/brewing-types";
 export declare const sortIngredientsByStep: (ingredients: Ingredient[]) => {
     StrikeWater: Ingredient[];
     Mash: Ingredient[];
@@ -11,4 +11,5 @@ export declare const sortIngredientsByType: (ingredients: Ingredient[]) => {
     Hop: Hop[];
     Culture: Culture[];
     Misc: NonFermentable[];
+    Chemistry: Chemistry[];
 };
