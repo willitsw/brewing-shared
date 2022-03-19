@@ -21,7 +21,12 @@ export type RecipeType = "Other" | "Extract" | "Partial mash" | "All grain";
 
 export type Step = "StrikeWater" | "Mash" | "Boil" | "Fermentor" | "Bottle";
 
-export type IngredientType = "Fermentable" | "Hop" | "Culture" | "Misc";
+export type IngredientType =
+  | "Fermentable"
+  | "Hop"
+  | "Culture"
+  | "Chemisty"
+  | "Misc";
 
 export interface Ingredient {
   type: IngredientType;
