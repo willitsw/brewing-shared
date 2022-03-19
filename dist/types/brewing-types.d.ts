@@ -17,7 +17,7 @@ export interface BrewSettings {
 }
 export declare type RecipeType = "Other" | "Extract" | "Partial mash" | "All grain";
 export declare type Step = "StrikeWater" | "Mash" | "Boil" | "Fermentor" | "Bottle";
-export declare type IngredientType = "Fermentable" | "Hop" | "Culture" | "Chemisty" | "Misc";
+export declare type IngredientType = "Fermentable" | "Hop" | "Culture" | "Chemistry" | "Misc";
 export interface Ingredient {
     type: IngredientType;
     id: string;
@@ -42,6 +42,7 @@ export interface Recipe {
 }
 export declare type FermentableType = "Other" | "Liquid extract" | "Dry extract" | "Grain" | "Sugar" | "Fruit" | "Juice" | "Honey";
 export interface Chemistry extends Ingredient {
+    type: "Chemistry";
 }
 export interface Fermentable extends Ingredient {
     type: "Fermentable";

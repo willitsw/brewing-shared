@@ -25,7 +25,7 @@ export type IngredientType =
   | "Fermentable"
   | "Hop"
   | "Culture"
-  | "Chemisty"
+  | "Chemistry"
   | "Misc";
 
 export interface Ingredient {
@@ -62,7 +62,9 @@ export type FermentableType =
   | "Juice"
   | "Honey";
 
-export interface Chemistry extends Ingredient {}
+export interface Chemistry extends Ingredient {
+  type: "Chemistry";
+}
 export interface Fermentable extends Ingredient {
   type: "Fermentable";
   lovibond: number;
