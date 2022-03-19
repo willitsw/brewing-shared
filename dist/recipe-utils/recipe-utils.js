@@ -19,15 +19,15 @@ exports.sortIngredientsByType = exports.sortIngredientsByStep = void 0;
 // ) => {
 //   return recipe.ingredients.filter(({ type }) => type === ingredientType);
 // };
-const sortIngredientsByStep = (recipe) => {
-    return recipe.ingredients.reduce((returnValue, currentValue) => {
+const sortIngredientsByStep = (ingredients) => {
+    return ingredients.reduce((returnValue, currentValue) => {
         returnValue[currentValue.step].push(currentValue);
         return returnValue;
     }, { StrikeWater: [], Mash: [], Boil: [], Fermentor: [], Bottle: [] });
 };
 exports.sortIngredientsByStep = sortIngredientsByStep;
-const sortIngredientsByType = (recipe) => {
-    return recipe.ingredients.reduce((returnValue, currentValue) => {
+const sortIngredientsByType = (ingredients) => {
+    return ingredients.reduce((returnValue, currentValue) => {
         returnValue[currentValue.type].push(currentValue);
         return returnValue;
     }, { Fermentable: [], Hop: [], Culture: [], Misc: [] });

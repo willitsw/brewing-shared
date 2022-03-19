@@ -1,12 +1,12 @@
-import { Culture, Fermentable, Hop, Ingredient, NonFermentable, Recipe } from "../types/brewing-types";
-export declare const sortIngredientsByStep: (recipe: Recipe) => {
+import { Culture, Fermentable, Hop, Ingredient, NonFermentable } from "../types/brewing-types";
+export declare const sortIngredientsByStep: (ingredients: Ingredient[]) => {
     StrikeWater: Ingredient[];
     Mash: Ingredient[];
     Boil: Ingredient[];
     Fermentor: Ingredient[];
     Bottle: Ingredient[];
 };
-export declare const sortIngredientsByType: (recipe: Recipe) => {
+export declare const sortIngredientsByType: (ingredients: Ingredient[]) => {
     Fermentable: Fermentable[];
     Hop: Hop[];
     Culture: Culture[];
