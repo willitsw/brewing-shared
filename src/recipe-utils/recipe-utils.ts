@@ -31,7 +31,7 @@ import {
 // };
 
 export const sortIngredientsByStep = (
-  recipe: Recipe
+  ingredients: Ingredient[]
 ): {
   StrikeWater: Ingredient[];
   Mash: Ingredient[];
@@ -39,7 +39,7 @@ export const sortIngredientsByStep = (
   Fermentor: Ingredient[];
   Bottle: Ingredient[];
 } => {
-  return recipe.ingredients.reduce(
+  return ingredients.reduce(
     (returnValue, currentValue) => {
       returnValue[currentValue.step].push(currentValue);
       return returnValue;
@@ -49,14 +49,14 @@ export const sortIngredientsByStep = (
 };
 
 export const sortIngredientsByType = (
-  recipe: Recipe
+  ingredients: Ingredient[]
 ): {
   Fermentable: Fermentable[];
   Hop: Hop[];
   Culture: Culture[];
   Misc: NonFermentable[];
 } => {
-  return recipe.ingredients.reduce(
+  return ingredients.reduce(
     (returnValue, currentValue) => {
       returnValue[currentValue.type].push(currentValue);
       return returnValue;
