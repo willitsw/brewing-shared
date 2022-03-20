@@ -37,6 +37,13 @@ export interface Ingredient {
   notes: string;
 }
 
+export type ValidIngredient =
+  | Fermentable
+  | Hop
+  | Culture
+  | NonFermentable
+  | Chemistry;
+
 export interface Recipe {
   id: string;
   user: string;
@@ -49,7 +56,7 @@ export interface Recipe {
   measurementType: MeasurementType;
   batchSize: number;
   efficiency: number;
-  ingredients: Array<Fermentable | Hop | Culture | NonFermentable | Chemistry>;
+  ingredients: Array<ValidIngredient>;
 }
 
 export type FermentableType =
