@@ -26,6 +26,7 @@ export interface Ingredient {
     timing: number;
     notes: string;
 }
+export declare type ValidIngredient = Fermentable | Hop | Culture | NonFermentable | Chemistry;
 export interface Recipe {
     id: string;
     user: string;
@@ -38,7 +39,7 @@ export interface Recipe {
     measurementType: MeasurementType;
     batchSize: number;
     efficiency: number;
-    ingredients: Array<Fermentable | Hop | Culture | NonFermentable | Chemistry>;
+    ingredients: Array<ValidIngredient>;
 }
 export declare type FermentableType = "Other" | "Liquid extract" | "Dry extract" | "Grain" | "Sugar" | "Fruit" | "Juice" | "Honey";
 export interface Chemistry extends Ingredient {
