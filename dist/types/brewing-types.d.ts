@@ -23,7 +23,7 @@ export interface Ingredient {
     id: string;
     name: string;
     step: Step;
-    timing: number;
+    timing?: number;
     notes: string;
 }
 export declare type ValidIngredient = Fermentable | Hop | Culture | NonFermentable | Chemistry;
