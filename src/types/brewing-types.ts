@@ -82,7 +82,6 @@ export interface Fermentable extends Ingredient {
 }
 export interface Hop extends Ingredient {
   type: "Hop";
-  name: string;
   alphaAcid: number;
   amount: number;
 }
