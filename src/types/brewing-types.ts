@@ -19,20 +19,30 @@ export interface BrewSettings {
 
 export type RecipeType = "Other" | "Extract" | "Partial mash" | "All grain";
 
-export enum Step {
-  StrikeWater = "Strike Water",
-  Mash = "Mash",
-  Boil = "Boil",
-  Fermentor = "Fermentor",
-  Bottle = "Bottle",
-}
-export interface IngredientType {
+export type Step = "StrikeWater" | "Mash" | "Boil" | "Fermentor" | "Bottle";
+
+export type IngredientType =
+  | "Fermentable"
+  | "Hop"
+  | "Culture"
+  | "Chemistry"
+  | "Misc";
+
+export interface Ingredient {
+  type: IngredientType;
   id: string;
   name: string;
   step: Step;
-  timing: number;
+  timing?: number;
   notes: string;
 }
+
+export type ValidIngredient =
+  | Fermentable
+  | Hop
+  | Culture
+  | NonFermentable
+  | Chemistry;
 
 export interface Recipe {
   id: string;
@@ -46,10 +56,7 @@ export interface Recipe {
   measurementType: MeasurementType;
   batchSize: number;
   efficiency: number;
-  fermentables: Fermentable[];
-  hops: Hop[];
-  cultures: Culture[];
-  nonFermentables: NonFermentable[];
+  ingredients: Array<ValidIngredient>;
 }
 
 export type FermentableType =
@@ -62,26 +69,33 @@ export type FermentableType =
   | "Juice"
   | "Honey";
 
-export interface Fermentable extends IngredientType {
+export interface Chemistry extends Ingredient {
+  type: "Chemistry";
+  amount: string;
+}
+export interface Fermentable extends Ingredient {
+  type: "Fermentable";
   lovibond: number;
-  type: FermentableType;
+  fermentableType: FermentableType;
   gravity: number;
   amount: number;
 }
-export interface Hop extends IngredientType {
-  name: string;
+export interface Hop extends Ingredient {
+  type: "Hop";
   alphaAcid: number;
   amount: number;
 }
 
 export type CultureForm = "Liquid" | "Dry";
 
-export interface Culture extends IngredientType {
+export interface Culture extends Ingredient {
+  type: "Culture";
   attenuation: number;
   form: CultureForm;
 }
 
-export interface NonFermentable extends IngredientType {
+export interface NonFermentable extends Ingredient {
+  type: "Misc";
   amount: string;
 }
 

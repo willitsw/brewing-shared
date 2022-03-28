@@ -2,9 +2,13 @@
   "name": "brewing-shared",
   "version": "0.0.6",
   "description": "Shared resources for beer app",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/willitsw/brewing-shared/issues"
   },
-  "homepage": "https://github.com/willitsw/brewing-shared#readme"
+  "homepage": "https://github.com/willitsw/brewing-shared#readme",
+  "devDependencies": {
+    "typescript": "4.3.5"
+  }
 }
