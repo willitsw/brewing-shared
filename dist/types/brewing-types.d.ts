@@ -1,7 +1,6 @@
 export declare type MeasurementType = "imperial" | "metric";
-export interface BrewSettings {
-    userId: string;
-    author: string;
+export interface User {
+    id: string;
     measurementType: MeasurementType;
     batchSize: number;
     boilTime: number;
@@ -24,18 +23,21 @@ export interface Ingredient {
     name: string;
     step: Step;
     timing?: number;
-    notes: string;
+    notes?: string;
+    amount: number;
+    amountType?: string;
 }
 export declare type ValidIngredient = Fermentable | Hop | Culture | NonFermentable | Chemistry;
 export interface Recipe {
     id: string;
-    user: string;
+    user?: User;
+    userId: string;
     description?: string;
     name: string;
     type: RecipeType;
     author: string;
-    createdDate?: string;
-    updatedDate?: string;
+    createdDate?: Date;
+    updatedDate?: Date;
     measurementType: MeasurementType;
     batchSize: number;
     efficiency: number;
@@ -44,20 +46,16 @@ export interface Recipe {
 export declare type FermentableType = "Other" | "Liquid extract" | "Dry extract" | "Grain" | "Sugar" | "Fruit" | "Juice" | "Honey";
 export interface Chemistry extends Ingredient {
     type: "Chemistry";
-    amount: string;
 }
 export interface Fermentable extends Ingredient {
     type: "Fermentable";
     lovibond: number;
-    fermentableType: FermentableType;
-    gravity: number;
-    amount: number;
+    form: FermentableType;
+    potential: number;
 }
 export interface Hop extends Ingredient {
     type: "Hop";
-    name: string;
     alphaAcid: number;
-    amount: number;
 }
 export declare type CultureForm = "Liquid" | "Dry";
 export interface Culture extends Ingredient {
@@ -67,7 +65,6 @@ export interface Culture extends Ingredient {
 }
 export interface NonFermentable extends Ingredient {
     type: "Misc";
-    amount: string;
 }
 export interface Stats {
     srm: number | null;
