@@ -47,7 +47,6 @@ export type ValidIngredient =
 
 export interface Recipe {
   id: string;
-  user?: User;
   description?: string;
   name: string;
   type: RecipeType;
