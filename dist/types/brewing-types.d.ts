@@ -31,7 +31,6 @@ export declare type ValidIngredient = Fermentable | Hop | Culture | NonFermentab
 export interface Recipe {
     id: string;
     user?: User;
-    userId: string;
     description?: string;
     name: string;
     type: RecipeType;
