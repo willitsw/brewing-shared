@@ -30,6 +30,7 @@ export interface Ingredient {
 export declare type ValidIngredient = Fermentable | Hop | Culture | NonFermentable | Chemistry;
 export interface Recipe {
     id: string;
+    userId: string;
     description?: string;
     name: string;
     type: RecipeType;
