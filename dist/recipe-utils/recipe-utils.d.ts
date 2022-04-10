@@ -13,3 +13,4 @@ export declare const sortIngredientsByType: (ingredients: Ingredient[]) => {
     Misc: NonFermentable[];
     Chemistry: Chemistry[];
 };
+export declare const getDate: () => string;

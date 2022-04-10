@@ -5,31 +5,37 @@ import {
   Hop,
   Ingredient,
   NonFermentable,
-  Recipe,
 } from "../types/brewing-types";
 
-// export const getFermentables = (recipe: Recipe): Fermentable[] => {
-//   return getIngredientByType(recipe, "Fermentable") as Fermentable[];
-// };
+const sortAmountDescending = (a: Ingredient, b: Ingredient) => {
+  if (a.amount > b.amount) {
+    return -1;
+  } else if (a.amount < b.amount) {
+    return 1;
+  } else {
+    return 0;
+  }
+};
 
-// export const getHops = (recipe: Recipe): Hop[] => {
-//   return getIngredientByType(recipe, "Hop") as Hop[];
-// };
+const sortTimeDescending = (a: Ingredient, b: Ingredient) => {
+  if (a.timing > b.timing) {
+    return -1;
+  } else if (a.timing < b.timing) {
+    return 1;
+  } else {
+    return 0;
+  }
+};
 
-// export const getCultures = (recipe: Recipe): Culture[] => {
-//   return getIngredientByType(recipe, "Culture") as Culture[];
-// };
-
-// export const getNonFermentables = (recipe: Recipe): NonFermentable[] => {
-//   return getIngredientByType(recipe, "Misc") as NonFermentable[];
-// };
-
-// const getIngredientByType = (
-//   recipe: Recipe,
-//   ingredientType: IngredientType
-// ) => {
-//   return recipe.ingredients.filter(({ type }) => type === ingredientType);
-// };
+const sortTimeAscending = (a: Ingredient, b: Ingredient) => {
+  if (a.timing < b.timing) {
+    return -1;
+  } else if (a.timing > b.timing) {
+    return 1;
+  } else {
+    return 0;
+  }
+};
 
 export const sortIngredientsByStep = (
   ingredients: Ingredient[]
@@ -40,13 +46,21 @@ export const sortIngredientsByStep = (
   Fermentor: Ingredient[];
   Bottle: Ingredient[];
 } => {
-  return ingredients.reduce(
+  const sortedIngredients = ingredients.reduce(
     (returnValue, currentValue) => {
       returnValue[currentValue.step].push(currentValue);
       return returnValue;
     },
     { StrikeWater: [], Mash: [], Boil: [], Fermentor: [], Bottle: [] }
   );
+
+  sortedIngredients.StrikeWater.sort(sortAmountDescending);
+  sortedIngredients.Mash.sort(sortAmountDescending);
+  sortedIngredients.Boil.sort(sortTimeDescending);
+  sortedIngredients.Fermentor.sort(sortTimeAscending);
+  sortedIngredients.Bottle.sort(sortAmountDescending);
+
+  return sortedIngredients;
 };
 
 export const sortIngredientsByType = (
@@ -58,11 +72,28 @@ export const sortIngredientsByType = (
   Misc: NonFermentable[];
   Chemistry: Chemistry[];
 } => {
-  return ingredients.reduce(
+  const sortedIngredients = ingredients.reduce(
     (returnValue, currentValue) => {
       returnValue[currentValue.type].push(currentValue);
       return returnValue;
     },
     { Fermentable: [], Hop: [], Culture: [], Misc: [], Chemistry: [] }
   );
+
+  sortedIngredients.Chemistry.sort(sortAmountDescending);
+  sortedIngredients.Culture.sort(sortAmountDescending);
+  sortedIngredients.Fermentable.sort(sortAmountDescending);
+  sortedIngredients.Hop.sort(sortAmountDescending);
+  sortedIngredients.Misc.sort(sortAmountDescending);
+
+  return sortedIngredients;
+};
+
+export const getDate = () => {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = today.getMonth() + 1; // Months start at 0!
+  const dd = today.getDate();
+
+  return dd + "/" + mm + "/" + yyyy;
 };
