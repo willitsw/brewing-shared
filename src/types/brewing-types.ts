@@ -52,8 +52,8 @@ export interface Recipe {
   name: string;
   type: RecipeType;
   author: string;
-  createdDate: Date;
-  updatedDate: Date;
+  createdDate: string;
+  updatedDate: string;
   measurementType: MeasurementType;
   batchSize: number;
   efficiency: number;
