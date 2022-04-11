@@ -25,7 +25,7 @@ export interface Ingredient {
     timing?: number;
     notes?: string;
     amount: number;
-    amountType?: string;
+    amountType: string;
 }
 export declare type ValidIngredient = Fermentable | Hop | Culture | NonFermentable | Chemistry;
 export interface Recipe {

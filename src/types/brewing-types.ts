@@ -35,7 +35,7 @@ export interface Ingredient {
   timing?: number;
   notes?: string;
   amount: number;
-  amountType?: string;
+  amountType: string;
 }
 
 export type ValidIngredient =
