@@ -37,7 +37,6 @@ export interface Recipe {
     author: string;
     createdDate: string;
     updatedDate: string;
-    measurementType: MeasurementType;
     batchSize: number;
     efficiency: number;
     ingredients: Array<ValidIngredient>;
