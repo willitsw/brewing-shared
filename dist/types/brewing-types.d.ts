@@ -40,6 +40,7 @@ export interface Recipe {
     batchSize: number;
     efficiency: number;
     ingredients: Array<ValidIngredient>;
+    measurementType: MeasurementType;
 }
 export declare type FermentableType = "Other" | "Liquid extract" | "Dry extract" | "Grain" | "Sugar" | "Fruit" | "Juice" | "Honey";
 export interface Chemistry extends Ingredient {
