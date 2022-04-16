@@ -116,6 +116,8 @@ export interface BeerUser {
 
 export interface BrewLog {
   id: string;
+  recipeName?: string;
+  status: "In Progress" | "Complete";
   recipe?: Recipe;
   userId: string;
   brewDate: string;
