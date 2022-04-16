@@ -81,3 +81,13 @@ export interface BeerUser {
     photoUrl: string | null;
     uid: string;
 }
+export interface BrewLog {
+    id: string;
+    recipeName?: string;
+    status: "In Progress" | "Complete";
+    recipe?: Recipe;
+    userId: string;
+    brewDate: string;
+    mashNotes: string;
+    fermentorNotes: string;
+}
