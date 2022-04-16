@@ -115,6 +115,7 @@ export interface BeerUser {
 }
 
 export interface BrewLog {
+  id: string;
   recipe?: Recipe;
   userId: string;
   brewDate: string;
