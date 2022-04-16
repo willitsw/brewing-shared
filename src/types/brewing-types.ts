@@ -113,3 +113,11 @@ export interface BeerUser {
   photoUrl: string | null;
   uid: string;
 }
+
+export interface BrewLog {
+  recipe?: Recipe;
+  userId: string;
+  brewDate: string;
+  mashNotes: string;
+  fermentorNotes: string;
+}
