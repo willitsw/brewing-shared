@@ -81,13 +81,27 @@ export interface BeerUser {
     photoUrl: string | null;
     uid: string;
 }
+export interface GravityReading {
+    title: string;
+    gravity: number;
+    date: string;
+}
 export interface BrewLog {
     id: string;
-    recipeName?: string;
+    name: string;
+    batchNumber: number;
     status: "In Progress" | "Complete";
     recipe?: Recipe;
     userId: string;
     brewDate: string;
-    mashNotes: string;
-    fermentorNotes: string;
+    secondaryDate?: string;
+    packagingDate?: string;
+    gravityReadings: GravityReading[];
+    brewingNotes: string;
+    fermentationNotes: string;
+    hopNotes: string;
+    yeastNotes: string;
+    packagingNotes: string;
+    tastingNotes: string;
+    otherNotes: string;
 }
