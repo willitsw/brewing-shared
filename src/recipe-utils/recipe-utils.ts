@@ -88,12 +88,3 @@ export const sortIngredientsByType = (
 
   return sortedIngredients;
 };
-
-export const getDate = () => {
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm = today.getMonth() + 1; // Months start at 0!
-  const dd = today.getDate();
-
-  return dd + "/" + mm + "/" + yyyy;
-};
