@@ -82,7 +82,7 @@ export interface BeerUser {
     uid: string;
 }
 export interface GravityReading {
-    title: string;
+    notes: string;
     gravity: number;
     date: string;
 }

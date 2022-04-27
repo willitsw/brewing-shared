@@ -115,7 +115,7 @@ export interface BeerUser {
 }
 
 export interface GravityReading {
-  title: string;
+  notes: string;
   gravity: number;
   date: string;
 }

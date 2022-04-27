@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDate = exports.sortIngredientsByType = exports.sortIngredientsByStep = void 0;
+exports.sortIngredientsByType = exports.sortIngredientsByStep = void 0;
 const sortAmountDescending = (a, b) => {
     if (a.amount > b.amount) {
         return -1;
@@ -60,11 +60,3 @@ const sortIngredientsByType = (ingredients) => {
     return sortedIngredients;
 };
 exports.sortIngredientsByType = sortIngredientsByType;
-const getDate = () => {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = today.getMonth() + 1; // Months start at 0!
-    const dd = today.getDate();
-    return dd + "/" + mm + "/" + yyyy;
-};
-exports.getDate = getDate;
